@@ -1,6 +1,6 @@
 'use client';
 import React, { useEffect, useState } from "react";
-import { fetchSheetData } from "@/app/service/sheetService";
+import { fetchSheetData } from "../app/service/sheetService";
 
 const FetchSheetData = ({ sheetId }) => {
   const [sheetData, setSheetData] = useState(null);
