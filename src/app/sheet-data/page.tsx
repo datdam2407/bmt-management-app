@@ -15,7 +15,6 @@ export default function Page() {
                 </li>
             </ul>
             <div className="flex gap-2">
-
             </div>
         </div>
     )

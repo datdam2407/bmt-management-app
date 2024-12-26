@@ -17,7 +17,7 @@ export const TabGroup = ({
     return (
         <div className="flex flex-wrap items-center gap-2">
             {items.map((item) => (
-                <Tab key={item.text}
+                <Tab key={item.id}
                     path={path}
                     item={item}
                     parallelRoutesKey={parallelRoutesKey}
