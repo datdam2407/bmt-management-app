@@ -1,66 +1,5 @@
-// // import React from "react"
-// // import { fetchAllSheetIdAndName } from "../service/sheetService";
-// // import { TabGroup } from "../../ui/tab-group";
-
-// // export default async function Layout({ children, }: { children: React.ReactNode }) {
-// //     const sheeetIds = await fetchAllSheetIdAndName();
-// //     return (
-// //         <div className="space-y-9">
-// //             <div className="flex justify-bettween">
-// //                 <TabGroup
-// //                     path="/sheet-data"
-// //                     items={[
-// //                         {
-// //                             text: 'Home',
-// //                         },
-// //                         ...sheeetIds.map((x) => ({
-// //                             text: x.name,
-// //                             slug: x.slug,
-// //                             id: x.id
-// //                         })),
-// //                     ]}
-// //                 />
-// //             </div>
-// //             <div>{children}</div>
-
-// //         </div>
-// //     )
-// // }
-
-// import React from "react";
-// import { fetchAllSheetIdAndName } from "../service/sheetService";
-// import { TabGroup } from "../../ui/tab-group";
-
-// export default async function Layout({
-//   children,
-// }: {
-//   children: React.ReactNode;
-// }) {
-//   const sheetIds = await fetchAllSheetIdAndName();
-
-//   return (
-//     <div className="space-y-9">
-//       <div className="flex justify-between">
-//         <TabGroup
-//           path="/sheet-data"
-//           items={[
-//             { text: "Home" },
-//             ...sheetIds.map((sheet) => ({
-//               text: sheet.name,
-//               id: sheet.id,
-//               slug: sheet.slug,
-//             })),
-//           ]}
-//         />
-//       </div>
-//       <div>{children}</div>
-//     </div>
-//   );
-// }
-
-import React from "react";
-import { fetchAllSheetIdAndName } from "../service/sheetService";
 import { TabGroup } from "../../ui/tab-group";
+import { fetchAllYearBySheetData } from "../service/sheetService";
 
 export default async function Layout({
   children,
@@ -68,8 +7,9 @@ export default async function Layout({
   children: React.ReactNode;
 }) {
   try {
-    const sheetIds = await fetchAllSheetIdAndName();
-
+    // Fetch all year data
+    const AllYears = await fetchAllYearBySheetData();
+  console.log(AllYears)
     return (
       <div className="space-y-9">
         <div className="flex justify-between">
@@ -77,9 +17,8 @@ export default async function Layout({
             path="/sheet-data"
             items={[
               { text: "Home" },
-              ...sheetIds.map((sheet) => ({
-                text: sheet.name,
-                id: sheet.id,
+              ...AllYears.map((yearObj) => ({
+                text: yearObj.year, // Ensure year is converted to string
               })),
             ]}
           />
@@ -91,4 +30,4 @@ export default async function Layout({
     console.error("Error in Layout:", error);
     return <div>Error loading sheet data</div>;
   }
-}
+}  

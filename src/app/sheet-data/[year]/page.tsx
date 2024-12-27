@@ -1,10 +1,6 @@
 import { SkeletonCard } from '../../../ui/skeleton-card';
-import { fetchSheetData } from '../../service/sheetService';
 
-export default async function Page(props: {
-  params: Promise<{ dataSheetSlug: string }>;
-}) {
-  const params = await props.params;
+export default async function Page(){
   return (
     <div className="space-y-4">
       <h1 className="text-xl font-medium text-gray-400/80">

@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { mainbar } from "../lib/mainbar";
-import { GlobalNav } from "../ui/global-nav";
 
 // import React, { useState } from "react";
 // import FetchSheetData from '../components/FetchSheetData'
