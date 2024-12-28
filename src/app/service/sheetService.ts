@@ -44,8 +44,6 @@ export async function fetchAllYearBySheetData() {
 export const fetchSheetWithYear = async (year: string) => {
   const API_URL = `${process.env.NEXT_PUBLIC_GET_SHEET_WITH_YEAR}${year}`;
   try{
-    // console.log('Fetching data from:', API_URL); // Debug the URL
-
     const res = await fetch(API_URL);
       if (!res.ok){
         const errorDetails = await res.text();
@@ -61,12 +59,9 @@ export const fetchSheetWithYear = async (year: string) => {
 }
 
 //API get data sheet by month
-
 export const fetchDataWithMonth = async (month:string) =>{
   const API_URL = `${process.env.NEXT_PUBLIC_GET_SHEET_WITH_MONTH}${month}`;
   try{
-    console.log("API_URL month", API_URL)
-
     const res = await fetch(API_URL);
     if(!res.ok){
       const errorDetails = await res.text();
@@ -74,7 +69,6 @@ export const fetchDataWithMonth = async (month:string) =>{
       throw new Error(`HTTP error! status: ${res.status}`); 
     }
     const data = await res.json();
-    // console.log("datawithmonth", data)
     return data;
   }catch(err){
     console.error('Error fetching sheet data:', err.message); 
@@ -83,11 +77,10 @@ export const fetchDataWithMonth = async (month:string) =>{
 
 
 // APIURL_GET_SHEET_BY_ID
-export const fetchSheetDataWithDate = async (id: string) => {
-  const API_URL = `${process.env.NEXT_PUBLIC_DATA_BY_SHEETS_ID}${id}`; 
+export const fetchSheetDataWithDate = async (name: string) => {
+  const API_URL = `${process.env.NEXT_PUBLIC_DATA_BY_SHEET_NAME}${name}`; 
 
   try {
-    console.log('Fetching date:', API_URL); // Debug the URL
     const response = await fetch(API_URL);
     if (!response.ok) {
       const errorDetails = await response.text();

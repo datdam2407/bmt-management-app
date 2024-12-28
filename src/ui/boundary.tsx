@@ -12,7 +12,7 @@ const Label = ({
 }) => {
   return (
     <div
-      className={clsx('rounded-full px-1.5 shadow-[0_0_1px_3px_black]', {
+      className={clsx('rounded-full px-1 shadow-[0_0_1px_3px_black]', {
         'bg-gray-800 text-gray-300': color === 'default',
         'bg-vercel-pink text-white': color === 'pink',
         'bg-vercel-blue text-white': color === 'blue',
@@ -28,7 +28,7 @@ const Label = ({
 };
 export const Boundary = ({
   children,
-  labels = ['data'],
+  labels = ['Data'],
   size = 'default',
   color = 'default',
   animateRerendering = true,
@@ -42,8 +42,8 @@ export const Boundary = ({
   return (
     <div
       className={clsx('relative rounded-lg border border-dashed', {
-        'p-3 lg:p-5': size === 'small',
-        'p-4 lg:p-9': size === 'default',
+        'p-3 lg:p-3': size === 'small',
+        'p-4 lg:p-3': size === 'default',
         'border-gray-700': color === 'default',
         'border-vercel-pink': color === 'pink',
         'border-vercel-blue': color === 'blue',
@@ -56,7 +56,7 @@ export const Boundary = ({
     >
       <div
         className={clsx(
-          'absolute -top-2.5 flex gap-x-1 text-[9px] uppercase leading-4 tracking-widest',
+          'absolute -top-2 flex gap-x-1 text-[9px] uppercase leading-4 tracking-widest',
           {
             'left-3 lg:left-5': size === 'small',
             'left-4 lg:left-9': size === 'default',

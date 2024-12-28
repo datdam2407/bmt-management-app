@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
             </div>
 
             <div className="rounded-lg bg-vc-border-gradient p-px shadow-lg shadow-black/20">
-              <div className="rounded-lg bg-black p-3.5 lg:p-6">{children}</div>
+              <div className="rounded-lg bg-black p-3.5 lg:p-3">{children}</div>
             </div>
           </div>
         </div>

@@ -9,36 +9,36 @@ export const mainbar: { name: string; items: Item[] }[] = [
         name: 'Layouts',
         items: [
             {
-                name: 'User Pages',
+                name: 'Lastest update',
                 slug: 'routes',
             },
             {
-                name: 'Badminton Payment',
+                name: 'Record Data',
                 slug: 'sheet-data',
                 description: 'Data',
             },
             {
-                name: 'ccc',
+                name: 'Comming soon',
                 slug: 'ccc',
                 description: 'ccc',
             },
         ],
     },
     {
-        name: 'Dash',
+        name: 'User Page',
         items: [
             {
-                name: 'aaas',
+                name: 'Comming soon',
                 slug: 'aaas',
                 description: 'aaas',
             },
             {
-                name: 'bbb',
+                name: 'Comming soon',
                 slug: 'bbb',
                 description: 'bbb',
             },
             {
-                name: 'ccc',
+                name: 'Comming soon',
                 slug: 'ccc',
                 description: 'ccc',
             },

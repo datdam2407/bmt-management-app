@@ -6,8 +6,10 @@ import { useState } from "react";
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import clsx from "clsx";
 import { mainbar, type Item } from "../lib/mainbar";
+import Logo from '../ui/shuttlecock.png';
 import { useSelectedLayoutSegment } from "next/navigation";
 
+import Image from 'next/image'; // Import Image component
 
 export function GlobalNav() {
     const [isOpen, setIsOpen] = useState(false);
@@ -22,7 +24,7 @@ export function GlobalNav() {
                     onClick={close}
                 >
                     <div className="h-7 w-7 rounded-full">
-                        Logo
+                    <Image src={Logo} alt="logo" className="h-7 w-7 rounded-full" />
                     </div>
 
                     <h3 className="font-semibold tracking-wide text-gray-400 group-hover:text-gray-50">

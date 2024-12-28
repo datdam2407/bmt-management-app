@@ -21,7 +21,7 @@ export default async function Layout({
   ];
 
   return (
-    <div className="space-y-9">
+    <div className="space-y-5">
       <div>
         <div className="flex justify-between">
           <TabGroup

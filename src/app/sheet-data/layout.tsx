@@ -9,14 +9,12 @@ export default async function Layout({
   try {
     // Fetch all year data
     const AllYears = await fetchAllYearBySheetData();
-  console.log(AllYears)
     return (
-      <div className="space-y-9">
+      <div className="space-y-5">
         <div className="flex justify-between">
           <TabGroup
             path="/sheet-data"
             items={[
-              { text: "Home" },
               ...AllYears.map((yearObj) => ({
                 text: yearObj.year, // Ensure year is converted to string
               })),
