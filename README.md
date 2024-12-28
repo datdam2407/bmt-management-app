@@ -1,4 +1,9 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Using git
+
+git checkout main
+git pull origin main
+git merge [your-branch]
+git push origin main
 
 ## Getting Started
 

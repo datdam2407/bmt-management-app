@@ -18,7 +18,7 @@ export const mainbar: { name: string; items: Item[] }[] = [
                 description: 'Data',
             },
             {
-                name: 'Comming soon',
+                name: 'Comming soonn',
                 slug: 'ccc',
                 description: 'ccc',
             },
@@ -28,17 +28,17 @@ export const mainbar: { name: string; items: Item[] }[] = [
         name: 'User Page',
         items: [
             {
-                name: 'Comming soon',
+                name: 'Comming soonnn',
                 slug: 'aaas',
                 description: 'aaas',
             },
             {
-                name: 'Comming soon',
+                name: 'Comming soonnnn',
                 slug: 'bbb',
                 description: 'bbb',
             },
             {
-                name: 'Comming soon',
+                name: 'Comming soonnnnn',
                 slug: 'ccc',
                 description: 'ccc',
             },

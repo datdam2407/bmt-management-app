@@ -1,4 +1,7 @@
 import { fetchSheetDataWithDate } from "../../../../service/sheetService";
+import Cell from "./cell";
+import Row from "./row";
+import { Player, SheetRow } from "./type";
 
 export default async function Page({
   children,
@@ -10,50 +13,45 @@ export default async function Page({
   try {
     // Await params and extract the "data-by-date" key
     const params = await rawParams;
+
     // Fetch the sheet data for the given "data-by-date"
     const sheetDataDateByDate = await fetchSheetDataWithDate(params["data-by-date"]);
+
     // Validate that the fetched data is an array
-    if (!Array.isArray(sheetDataDateByDate)) {
-      console.error("Error: Expected an array but got:", sheetDataDateByDate);
-      return <div>Error: Data format is incorrect</div>;
+    if (!Array.isArray(sheetDataDateByDate) || sheetDataDateByDate.length === 0) {
+      console.warn("Warning: No data available or incorrect format:", sheetDataDateByDate);
+      return <div>No data available for the selected date.</div>;
     }
+
+    // Map data to Player instances with rounding
+    const players: Player[] = sheetDataDateByDate.map((item: SheetRow) => new Player(item));
 
     return (
       <div className="space-y-9">
         <div>
           <div className="flex justify-between">
-            {sheetDataDateByDate.length > 0 ? (
-              <div className="overflow-x-auto">
-                <table className="table-auto border-collapse border border-gray-300 w-full min-w-max">
-                  <thead>
-                    <tr>
-                      <th className="border border-gray-300 px-4 py-2">Name</th>
-                      <th className="border border-gray-300 px-2 py-2">Attendance</th>
-                      <th className="border border-gray-300 px-2 py-2">Prev Month</th>
-                      <th className="border border-gray-300 px-2 py-2">This Month</th>
-                      <th className="border border-gray-300 px-2 py-2">Prepaid</th>
-                      <th className="border border-gray-300 px-2 py-2">Badminton</th>
-                      <th className="border border-gray-300 px-4 py-2">Need to Pay</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {sheetDataDateByDate.map((item, index) => (
-                      <tr key={index}>
-                        <td className="border border-gray-300 px-4 py-2">{item.Name}</td>
-                        <td className="border border-gray-300 px-4 py-2">{item.Attendance}</td>
-                        <td className="border border-gray-300 px-4 py-2">{item["Prev Month"]}</td>
-                        <td className="border border-gray-300 px-4 py-2">{item["This Month"]}</td>
-                        <td className="border border-gray-300 px-4 py-2">{item.Prepaid}</td>
-                        <td className="border border-gray-300 px-4 py-2">{item.Badminton}</td>
-                        <td className="border border-gray-300 px-4 py-2">{item["Need to Pay"] ? Math.round(item["Need to Pay"]) : "N/A"}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
+            <div className="overflow-x-auto">
+              <div className="px-2 py-2">
+                <div className="grid w-full place-content-center relative">
+                  <div className="grid-rows-subgrid">
+                    <table className="max-w-screen-lg text-sm text-center text-gray-500">
+                      <thead className="text-gray-400 uppercase bg-black-700">
+                        <tr>
+                          {Object.keys(players[0]).map((header) => (
+                            <Cell key={header} value={header} class="font-extrabold" />
+                          ))}
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {players.map((player, i) => (
+                          <Row player={player} key={i} />
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
               </div>
-            ) : (
-              <div>No data available for the selected date.</div>
-            )}
+            </div>
           </div>
         </div>
         <div>{children}</div>
