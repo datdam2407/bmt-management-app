@@ -10,6 +10,7 @@ import Logo from '../ui/shuttlecock.png';
 import { useSelectedLayoutSegment } from "next/navigation";
 
 import Image from 'next/image'; // Import Image component
+import { calendar } from "../lib/calendar";
 
 export function GlobalNav() {
     const [isOpen, setIsOpen] = useState(false);
@@ -24,7 +25,7 @@ export function GlobalNav() {
                     onClick={close}
                 >
                     <div className="h-7 w-7 rounded-full">
-                    <Image src={Logo} alt="logo" className="h-7 w-7 rounded-full" />
+                        <Image src={Logo} alt="logo" className="h-7 w-7 rounded-full" />
                     </div>
 
                     <h3 className="font-semibold tracking-wide text-gray-400 group-hover:text-gray-50">
@@ -43,7 +44,7 @@ export function GlobalNav() {
                     )}
             </button>
             <div className={clsx('overflow-y-auto lg:static lg:block', { 'fixed inset-x-0 bottom-0 top-14 mt-px bg-black': isOpen, hidden: !isOpen, })}>
-                <nav className="space-y-6 px-2 pb-24 pt-5">
+                <nav className="space-y-6 px-2 pb-5 pt-5">
                     {mainbar.map((section) => {
                         return (
                             <div key={section.name}>
@@ -60,6 +61,25 @@ export function GlobalNav() {
                         )
                     })}
                 </nav>
+                <nav className="space-y-6 px-2 pb-24 pt-3">
+                    {calendar.map((section) => (
+                        <div key={section.name}>
+                            <div className="mb-2 px-3 py-3 text-xs font-semibold uppercase tracking-wider text-white">
+                                {section.name}
+                            </div>
+                            <div className="space-y-1">
+                                <ul className="space-y-2">
+                                    {section.items.map((item, index) => (
+                                        <li key={index} className="text-sm text-gray-300 px-3">
+                                            - {item.name}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        </div>
+                    ))}
+                </nav>
+
             </div>
         </div>
     );

@@ -1,14 +1,14 @@
 import Link from "next/link";
 import { mainbar } from "../lib/mainbar";
-import LatestPage from "../app/sheet-data-latest-date/page"; 
+import LatestPage from "../app/sheet-data-latest-date/page";
 
 export default function MainPage() {
   return (
     <div className="space-y-4">
       <h1 className="text-xl font-medium text-gray-500">Baminton Payment</h1>
-      
+
       <LatestPage />
-      
+
       <div className="space-y-10 text-white">
         {mainbar.map((section) => {
           return (
@@ -42,6 +42,7 @@ export default function MainPage() {
           );
         })}
       </div>
+
     </div>
   );
 }

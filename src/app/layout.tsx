@@ -4,8 +4,9 @@ import { GlobalNav } from "../ui/global-nav";
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Badminton App",
+  title: "Badminton Group",
   description: "Generated Badminton",
+  icons: "../ui/badminton.png",
 };
 
 export default function RootLayout({ children }) {

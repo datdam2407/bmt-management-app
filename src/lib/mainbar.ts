@@ -6,7 +6,7 @@ export type Item = {
 
 export const mainbar: { name: string; items: Item[] }[] = [
     {
-        name: 'Layouts',
+        name: 'Badminton Payment',
         items: [
             {
                 name: 'Lastest update',
@@ -18,11 +18,7 @@ export const mainbar: { name: string; items: Item[] }[] = [
                 slug: 'sheet-data',
                 description: 'Dữ liệu tiền sân các ngày trước',
             },
-            // {
-            //     name: 'Comming soonn',
-            //     slug: 'ccc',
-            //     description: 'ccc',
-            // },
+           
         ],
     },
     // {
