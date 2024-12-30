@@ -64,7 +64,7 @@ export default function Page() {
           </h3>
 
           <div className="overflow-x-auto sm:overflow-visible">
-          <table className="max-w-screen-lg text-sm text-center text-gray-500">
+            <table className="max-w-screen-lg text-sm text-center text-gray-500">
               <thead className="text-gray-400 uppercase bg-black-700">
                 <tr>
                   {Object.keys(players[0]).map((header) => (
@@ -81,12 +81,12 @@ export default function Page() {
           </div>
 
           <h1 className="text-xl font-bold text-white mb-4 py-2">Attendance</h1>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2">
-            {players.map(
-              (player, i) =>
+          <div className="overflow-x-auto scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-700">
+            <div className="flex space-x-4">
+              {players.map((player, i) =>
                 player.attendance > 0 && (
                   <div key={i} className="flex flex-col items-center">
-                    <div className="icon-container w-6 h-6 sm:w-6 sm:h-6 md:w-8 md:h-8 lg:w-10 lg:h-10">
+                    <div className="icon-container w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 lg:w-12 lg:h-12">
                       <Image
                         src={logo}
                         alt={`${player.name}'s attendance`}
@@ -95,14 +95,23 @@ export default function Page() {
                       />
                     </div>
                     <div className="name-container mt-2">
-                      <h5 className="text-white text-xs sm:text-sm font-medium">{player.name}</h5>
+                      {player.attendance > 1 ? (
+                        <h5 className="text-white text-xs sm:text-sm font-medium whitespace-nowrap">
+                          {player.name} ({player.attendance - 1} {player.attendance > 2 ? "Friends" : "Friend"})
+                        </h5>
+                      ) : (
+                        <h5 className="text-white text-xs sm:text-sm font-medium whitespace-nowrap">
+                          {player.name}
+                        </h5>
+                      )}
                     </div>
                   </div>
                 )
-            )}
+              )}
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </div >
   );
 }

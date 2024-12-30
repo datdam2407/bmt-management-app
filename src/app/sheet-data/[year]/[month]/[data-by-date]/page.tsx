@@ -6,6 +6,9 @@ import Cell from "./cell";
 import Row from "./row";
 import { Player, SheetRow } from "./type";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
+import Image from 'next/image'; // Import Image component
+
+import badminton from '../../../../../ui/badminton.png';
 
 interface PageProps {
   params: Promise<{
@@ -60,28 +63,55 @@ export default function Page({ params }: PageProps) {
   }
 
   return (
-    <div className="space-y-9">
-      <div className="flex justify-between">
-        <div className="overflow-x-auto">
-          <div className="px-2 py-2">
-            <div className="grid w-full place-content-center relative">
-              <div className="grid-rows-subgrid">
-                <table className="max-w-screen-lg text-sm text-center text-gray-500">
-                  <thead className="text-gray-400 uppercase bg-black-700">
-                    <tr>
-                      {Object.keys(players[0]).map((header) => (
-                        <Cell key={header} value={header} class="font-extrabold" />
-                      ))}
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {players.map(
-                      (player, i) =>
-                        player.name !== "TIỀN SÂN: " && <Row player={player} key={i} />
-                    )}
-                  </tbody>
-                </table>
-              </div>
+    <div className="overflow-x-auto">
+      <div className="px-1 py-2">
+        <div className="grid w-full place-content-center relative">
+
+          <div className="overflow-x-auto sm:overflow-visible">
+            <table className="max-w-screen-lg text-sm text-center text-gray-500">
+              <thead className="text-gray-400 uppercase bg-black-700">
+                <tr>
+                  {Object.keys(players[0]).map((header) => (
+                    <Cell key={header} value={header} class="font-extrabold" />
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {players.map((player, i) => (
+                  player.name !== "TIỀN SÂN: " && <Row player={player} key={i} />
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <h1 className="text-xl font-bold text-white mb-4 py-2">Attendance</h1>
+          <div className="overflow-x-auto scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-700">
+            <div className="flex space-x-4">
+              {players.map((player, i) =>
+                player.attendance > 0 && (
+                  <div key={i} className="flex flex-col items-center">
+                    <div className="icon-container w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 lg:w-12 lg:h-12">
+                      <Image
+                        src={badminton}
+                        alt={`${player.name}'s attendance`}
+                        className="w-full h-full rounded-full object-cover"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div className="name-container mt-2">
+                      {player.attendance > 1 ? (
+                        <h5 className="text-white text-xs sm:text-sm font-medium whitespace-nowrap">
+                          {player.name} ({player.attendance - 1} {player.attendance > 2 ? "Friends" : "Friend"})
+                        </h5>
+                      ) : (
+                        <h5 className="text-white text-xs sm:text-sm font-medium whitespace-nowrap">
+                          {player.name}
+                        </h5>
+                      )}
+                    </div>
+                  </div>
+                )
+              )}
             </div>
           </div>
         </div>

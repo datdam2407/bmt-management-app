@@ -18,8 +18,7 @@ const Row = (params: { player: Player }) => {
               key={i}
               value={value}
               class={
-                (+value > 0 ? "text-red-400" : "text-green-400") +
-                " font-extrabold"
+                (+value > 0 ? "text-red-400" : "text-green-400") + " font-extrabold"
               }
             />
           );
