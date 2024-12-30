@@ -13,7 +13,6 @@ import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 export default function Page() {
   const [players, setPlayers] = useState<Player[]>([]);
   const [loading, setLoading] = useState<boolean>(true); // State for loading
-  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -65,7 +64,7 @@ export default function Page() {
           </h3>
 
           <div className="overflow-x-auto sm:overflow-visible">
-            <table className="max-w-full text-sm text-center text-gray-500 table-auto sm:max-w-screen-lg">
+          <table className="max-w-screen-lg text-sm text-center text-gray-500">
               <thead className="text-gray-400 uppercase bg-black-700">
                 <tr>
                   {Object.keys(players[0]).map((header) => (
@@ -87,7 +86,7 @@ export default function Page() {
               (player, i) =>
                 player.attendance > 0 && (
                   <div key={i} className="flex flex-col items-center">
-                    <div className="icon-container w-14 h-14 sm:w-16 sm:h-16">
+                    <div className="icon-container w-6 h-6 sm:w-6 sm:h-6 md:w-8 md:h-8 lg:w-10 lg:h-10">
                       <Image
                         src={logo}
                         alt={`${player.name}'s attendance`}

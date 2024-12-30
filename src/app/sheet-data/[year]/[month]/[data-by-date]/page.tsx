@@ -63,7 +63,6 @@ export default function Page({
 
   return (
     <div className="space-y-9">
-      <div>
         <div className="flex justify-between">
           <div className="overflow-x-auto">
             <div className="px-2 py-2">
@@ -89,7 +88,6 @@ export default function Page({
               </div>
             </div>
           </div>
-        </div>
       </div>
       <div>{children}</div>
     </div>
