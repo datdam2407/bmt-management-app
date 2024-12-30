@@ -10,38 +10,39 @@ export const mainbar: { name: string; items: Item[] }[] = [
         items: [
             {
                 name: 'Lastest update',
-                slug: 'routes',
+                slug: 'sheet-data-latest-date',
+                description: 'Tiền sân mới nhất hôm nay'
             },
             {
                 name: 'Record Data',
                 slug: 'sheet-data',
-                description: 'Data',
+                description: 'Dữ liệu tiền sân các ngày trước',
             },
-            {
-                name: 'Comming soonn',
-                slug: 'ccc',
-                description: 'ccc',
-            },
+            // {
+            //     name: 'Comming soonn',
+            //     slug: 'ccc',
+            //     description: 'ccc',
+            // },
         ],
     },
-    {
-        name: 'User Page',
-        items: [
-            {
-                name: 'Comming soonnn',
-                slug: 'aaas',
-                description: 'aaas',
-            },
-            {
-                name: 'Comming soonnnn',
-                slug: 'bbb',
-                description: 'bbb',
-            },
-            {
-                name: 'Comming soonnnnn',
-                slug: 'ccc',
-                description: 'ccc',
-            },
-        ],
-    },
+    // {
+    //     name: 'User Page',
+    //     items: [
+    //         {
+    //             name: 'Comming soonnn',
+    //             slug: 'aaas',
+    //             description: 'aaas',
+    //         },
+    //         {
+    //             name: 'Comming soonnnn',
+    //             slug: 'bbb',
+    //             description: 'bbb',
+    //         },
+    //         {
+    //             name: 'Comming soonnnnn',
+    //             slug: 'ccc',
+    //             description: 'ccc',
+    //         },
+    //     ],
+    // },
 ];

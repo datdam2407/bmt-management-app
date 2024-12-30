@@ -1,22 +1,72 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import { TabGroup } from "../../../ui/tab-group";
 import { fetchSheetWithYear } from "../../service/sheetService";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
-export default async function Layout({
+type MonthData = {
+  name: string;
+  // Add other properties as needed
+};
+
+type SheetData = {
+  [month: string]: MonthData[]; // Example: 'January': [{...data}, {...data}]
+  monthNames?: MonthData[]; // If monthNames exists
+};
+
+export default function Layout({
   children,
   params: rawParams,
 }: {
   children: React.ReactNode;
   params: Promise<{ year: string }>;
 }) {
-  // Await the params once and fetch sheet data
-  const params = await rawParams;
+  const [allMonth, setAllMonths] = useState<SheetData>({}); // State to store months data
+  const [loading, setLoading] = useState<boolean>(true); // State to manage loading
+  const [error, setError] = useState<string | null>(null); // State for error
+  const [year, setYear] = useState<string>("");
 
-  // Fetch sheet data using the awaited year
-  const sheetData = await fetchSheetWithYear(params.year);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const params = await rawParams; // Await the params to access the year
+        const year = params.year; // Extract the 'year' value from params
+        setYear(year); 
 
-  // Define the month names in an array for consistent handling
+        const sheetData = await fetchSheetWithYear(year); 
+        setAllMonths(sheetData); 
+        setLoading(false); 
+      } catch (error) {
+        console.error("Error fetching sheet data:", error);
+        setError("Failed to load data"); 
+        setLoading(false); 
+      }
+    };
+
+    fetchData(); 
+  }, [rawParams]); 
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <DotLottieReact
+          src="https://lottie.host/949fd376-6d56-46fa-b2f7-f22c313bba88/7nxd0fjtS9.lottie"
+          loop
+          autoplay
+          speed={1.5} // Adjust speed if necessary
+          className="w-full h-[200px] flex justify-center items-center"
+        />
+      </div>
+    );
+  }
+
+  if (error) {
+    return <div className="text-red-500 text-center">{error}</div>;
+  }
+
   const monthNames = [
-    "January", "February", "March", "April", "May", "June", 
+    "January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"
   ];
 
@@ -25,30 +75,23 @@ export default async function Layout({
       <div>
         <div className="flex justify-between">
           <TabGroup
-            path={`/sheet-data/${params.year}`}
+            path={`/sheet-data/${year}`}
             items={[
- 
-              // Loop through all months (January to December)
               ...monthNames.map((month) => {
-                // Check if there is data for the month
-                const monthData = sheetData[month];
+                const monthData = allMonth[month]; 
                 if (monthData && monthData.length > 0) {
-                  return {
-                    text: month, // Display the month name if it has data
-                  };
+                  return { text: month }; 
                 }
-                // If no data exists for the month, skip adding it to the tabs
                 return null;
-              }).filter(Boolean), // Remove null entries for months with no data
+              }).filter(Boolean), 
 
-              // Handling December with specific data (if needed)
-              ...sheetData.monthNames?.map((x) => ({
+              // Handling the monthNames data if available
+              ...allMonth.monthNames?.map((x: any) => ({
                 text: x.name,
               })) || [],
             ]}
           />
         </div>
-
       </div>
       <div className="space-x-3">{children}</div>
     </div>
