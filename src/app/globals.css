@@ -22,10 +22,15 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.global-nav-mobile{
+  background-image: url('../ui/nav_bar_new_year.gif');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
 .global-nav{
   background-image: url('../ui/new_year_2025.gif');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-
 }
