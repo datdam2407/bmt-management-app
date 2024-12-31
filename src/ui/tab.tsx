@@ -12,7 +12,7 @@ export const Tab = (
     }) => {
     const segment = useSelectedLayoutSegment(parallelRoutesKey)
     const href = item.text ? path + '/' + item.text : path;
-    console.log("href", href)
+    // console.log("href", href)
     const isActive = (!item.text && segment === null) || segment === item.segment || segment === item.text;
 
     return (

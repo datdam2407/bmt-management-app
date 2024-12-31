@@ -22,7 +22,7 @@ export default function Layout({
       try {
         const params = await rawParams; // Resolve params
         const data = await fetchDataWithMonth(params.year , params.month); // Fetch the data for the given month
-        console.log(data)
+        // console.log(data)
         setMonth(params.month);
         setYear(params.year);
         if (!Array.isArray(data)) {
