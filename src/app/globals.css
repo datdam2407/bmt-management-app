@@ -30,6 +30,10 @@ body {
 }
 .global-nav{
   background-image: url('../ui/new_year_2025.gif');
+  
+ /* Tet Holiday 2025 */
+ /* background-image: url('../ui/TetHoliday2025.gif'); */
+
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -180,107 +184,3 @@ body {
   top: 60%;
   animation-delay: -0.4s;
 }
-
-/* Additional Firework Variations */
-.firework:nth-child(4) {
-  --x: 15vmin;
-  --y: -40vmin;
-}
-
-.firework:nth-child(4),
-.firework:nth-child(4)::before,
-.firework:nth-child(4)::after {
-  --color1: red;
-  --color2: orange;
-  --color3: gold;
-  --color4: coral;
-  --color5: salmon;
-  --color6: darkorange;
-  --finalSize: 50vmin;
-  left: 40%;
-  top: 30%;
-  animation-delay: -0.6s;
-}
-
-
-.firework:nth-child(5) {
-  --x: -20vmin;
-  --y: -35vmin;
-}
-
-.firework:nth-child(5),
-.firework:nth-child(5)::before,
-.firework:nth-child(5)::after {
-  --color1: purple;
-  --color2: indigo;
-  --color3: violet;
-  --color4: blueviolet;
-  --color5: mediumpurple;
-  --color6: slateblue;
-  --finalSize: 48vmin;
-  left: 40%;
-  top: 40%;
-  animation-delay: -0.8s;
-}
-
-.firework:nth-child(6) {
-  --x: 25vmin;
-  --y: -40vmin;
-}
-
-.firework:nth-child(6),
-.firework:nth-child(6)::before,
-.firework:nth-child(6)::after {
-  --color1: turquoise;
-  --color2: aquamarine;
-  --color3: teal;
-  --color4: lightseagreen;
-  --color5: mediumturquoise;
-  --color6: cadetblue;
-  --finalSize: 52vmin;
-  left: 40%;
-  top: 50%;
-  animation-delay: -1s;
-}
-
-.firework:nth-child(7) {
-  --x: -15vmin;
-  --y: -25vmin;
-}
-
-.firework:nth-child(7),
-.firework:nth-child(7)::before,
-.firework:nth-child(7)::after {
-  --color1: crimson;
-  --color2: firebrick;
-  --color3: darkred;
-  --color4: maroon;
-  --color5: tomato;
-  --color6: indianred;
-  --finalSize: 55vmin;
-  right: 40%;
-  top: 20%;
-  animation-delay: -1.2s;
-}
-
-.firework:nth-child(8) {
-  --x: 10vmin;
-  --y: -20vmin;
-}
-
-.firework:nth-child(8),
-.firework:nth-child(8)::before,
-.firework:nth-child(8)::after {
-  --color1: limegreen;
-  --color2: forestgreen;
-  --color3: seagreen;
-  --color4: mediumseagreen;
-  --color5: springgreen;
-  --color6: lightgreen;
-  --finalSize: 60vmin;
-  right: 40%;
-  top: 30%;
-  animation-delay: -1.6s;
-}
-
-

@@ -8,16 +8,8 @@ export default function MainPage() {
       <div className="firework"></div>
       <div className="firework"></div>
       <div className="firework"></div>
-      <div className="firework"></div>
-      <div className="firework"></div>
-      <div className="firework"></div>
-      <div className="firework"></div>
-      <div className="firework"></div>
 
-      <h1 className="text-xl font-medium text-gray-500">Baminton Payment</h1>
-
-      <LatestPage />
-
+      {/* <h1 className="text-xl font-medium text-gray-500">Badminton Payment</h1> */}
       <div className="space-y-10 text-white">
         {mainbar.map((section) => {
           return (
@@ -51,6 +43,8 @@ export default function MainPage() {
           );
         })}
       </div>
+
+      <LatestPage />
 
     </div>
   );

@@ -64,14 +64,6 @@ export default function Page({ params }: PageProps) {
 
   return (
     <div className="overflow-x-auto">
-      <div className="firework"></div>
-      <div className="firework"></div>
-      <div className="firework"></div>
-      <div className="firework"></div>
-      <div className="firework"></div>
-      <div className="firework"></div>
-      <div className="firework"></div>
-      <div className="firework"></div>
       <div className="px-1 py-2">
         <div className="grid w-full place-content-center relative">
 

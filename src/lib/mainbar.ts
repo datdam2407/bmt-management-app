@@ -9,7 +9,7 @@ export const mainbar: { name: string; items: Item[] }[] = [
         name: 'Badminton Payment',
         items: [
             {
-                name: 'Lastest update',
+                name: 'Latest update',
                 slug: 'sheet-data-latest-date',
                 description: 'Tiền sân mới nhất hôm nay'
             },
