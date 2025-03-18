@@ -4,27 +4,23 @@ export type Item = {
 
 export const calendar: { name: string; items: Item[] }[] = [
     {
-        name: 'Lịch đánh cầu tháng 1',
+        name: 'Lịch đánh cầu tháng 3',
         items: [
             {
-                name: 'Thu 2/1 *PT80* C2,3 8pm-10pm Zac',
+                name: 'Wed 5/3 Nu 1,2,3 Minh',
             },
             {
-                name: 'Sun 5/1 Nu C2,3 10am-12pm Zac',
+                name: 'Wed 12/3 Nu 1,2,3  8pm-10pm (dat)',
             },
             {
-                name: 'Wed 8/1 Nu 1,2 8pm-10pm Dat',
+                name: 'Wed 19/3 Nu1,2,3  8pm-10pm  (dat)',
             },
             {
-                name: 'Sun 12/1 Nu 1,2 10am-12pm Dat',
+                name: 'Sun 23/3 Nu 2 10am-12pm (minh)',
             },
             {
-                name: 'Wed 15/1 Nu1,2,3 8pm-10pm Dat',
+                name: 'Wed 26/3 Nu 1,3  8pm-10pm  (dat)',
             },
-            {
-                name: 'Sun 19/1 Nu 1 10am-12pm Dat',
-            },
-
         ],
     },
 ];

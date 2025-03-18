@@ -5,10 +5,6 @@ import LatestPage from "../app/sheet-data-latest-date/page";
 export default function MainPage() {
   return (
     <div className="space-y-4">
-      <div className="firework"></div>
-      <div className="firework"></div>
-      <div className="firework"></div>
-
       {/* <h1 className="text-xl font-medium text-gray-500">Badminton Payment</h1> */}
       <div className="space-y-10 text-white">
         {mainbar.map((section) => {

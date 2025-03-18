@@ -6,7 +6,7 @@ import Cell from "./cell";
 import Row from "./row";
 import { Player, SheetRow } from "./type";
 import logo from '../../ui/shuttlecock.png';
-import badminton from '../../ui/badminton.png';
+// import badminton from '../../ui/badminton.png';
 import Image from 'next/image'; // Import Image component
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 
@@ -57,14 +57,6 @@ export default function Page() {
 
   return (
     <div className="overflow-x-auto">
-       <div className="firework"></div>
-      <div className="firework"></div>
-      <div className="firework"></div>
-      <div className="firework"></div>
-      <div className="firework"></div>
-      <div className="firework"></div>
-      <div className="firework"></div>
-      <div className="firework"></div>
       <div className="px-1 py-2">
         <div className="grid w-full place-content-center relative">
           <h3 className="text-white text-sm font-medium uppercase font-semibold pb-5">
